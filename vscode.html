@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Settings</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #1e1e2e;
+            /* Mocha Base */
+            color: #cdd6f4;
+            /* Mocha Text */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #f5e0dc;
+            /* Mocha Rosewater */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .json-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #313244;
+            /* Mocha Surface0 */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .json-display {
+            width: 100%;
+            min-height: 500px;
+            background-color: #1e1e2e;
+            /* Mocha Base */
+            color: #cdd6f4;
+            /* Mocha Text */
+            border: 1px solid #45475a;
+            /* Mocha Surface1 */
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Fira Code', 'Operator Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            resize: vertical;
+        }
+
+        .instructions {
+            text-align: center;
+            margin: 20px 0;
+            color: #a6adc8;
+            /* Mocha Subtext0 */
+            font-size: 14px;
+        }
+
+        .copy-button {
+            background-color: #cba6f7;
+            /* Mocha Mauve */
+            color: #1e1e2e;
+            /* Mocha Base */
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .copy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-link {
+            margin-top: 30px;
+            color: #89b4fa;
+            /* Mocha Blue */
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>VS Code Settings (vscode.json)</h1>
+
+    <div class="container">
+        <div class="json-container">
+            <textarea class="json-display" id="jsonContent" readonly>{
+    "remote.downloadExtensionsLocally": true,
+    // UI
+    "workbench.activityBar.location": "default",
+    // Remove position indicator in the editor's scrollbar
+    "editor.hideCursorInOverviewRuler": true,
+    // Remove code-block folding icon
+    "editor.folding": false,
+    // Move tabs to be in a single line with window controls
+    "window.titleBarStyle": "native",
+    // need to have apc extension
+    "apc.electron": {
+        "titleBarStyle": "hiddenInset",
+        "trafficLightPosition": {
+            "x": 11,
+            "y": 10
+        }
+    },
+    "apc.header": {
+        "height": 36
+    },
+    "window.restoreWindows": "none",
+    "workbench.editor.enablePreview": false,
+    "zenMode.centerLayout": false,
+    // "customizeUI.activityBar": "left",
+    // "customizeUI.font.regular": "OperatorMono-Medium",
+    "workbench.tree.indent": 20,
+    // Editor
+    "editor.smoothScrolling": true,
+    "editor.lightbulb.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.enabled": false,
+    // Fonts
+    // @sync os=mac
+    "editor.fontFamily": "'OperatorMono-Bold', 'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    // @sync os=windows
+    // "editor.fontFamily": "'Operator Mono', 'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 18,
+    "editor.fontLigatures": true,
+    // "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.inheritEnv": false,
+    "debug.console.fontFamily": "'OperatorMono-Bold'",
+    // "debug.console.fontFamily": "'Operator Mono'",
+    "debug.console.fontSize": 16,
+    // Python
+    "python.analysis.extraPaths": [
+        "/ai-team-shared-5/users/afarzaneh/repos/wreckpy",
+        "/ai-team-shared-5/users/afarzaneh/repos/wreckvision",
+        "/ai-team-shared-5/users/afarzaneh/repos/wreckcore"
+    ],
+    // Linting
+    "flake8.args": [
+        "--max-line-length=88",
+        "--max-doc-length=88",
+        "--ignore=E402,E722,E501,W503,E203,E741,E731",
+        // DETR: F401,E402,F403,W503,W504
+        // "--ignore=F401"
+        //"--ignore=E501,W503,W504"
+    ],
+    // Theme
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.iconTheme": "catppuccin-mocha",
+    // Theme mods for operator font
+    "editor.tokenColorCustomizations": {
+        "[Nord Wave]": { // [Halcyon, Gruvbox Dark Hard, GitHub Dark Default, City Lights]
+            "textMateRules": [
+                {
+                    "name": "italicsify for operator mono",
+                    "scope": [
+                        // general
+                        "emphasis",
+                        "invalid",
+                        "invalid.deprecated",
+                        "support",
+                        // markdown
+                        "markup.italic",
+                        // classes
+                        "keyword.expressions-and-types.swift",
+                        "keyword.other.this",
+                        "variable.language",
+                        "variable.parameter.function.language.special",
+                        "entity.other.inherited-class",
+                        // comments
+                        "comment.block.documentation entity.name.type",
+                        "comment.block.documentation variable",
+                        // functions and methods
+                        "entity.name.variable.parameter",
+                        "meta.at-rule.function variable",
+                        "meta.at-rule.mixin variable",
+                        "meta.function.arguments variable.other.php",
+                        "meta.selectionset.graphql meta.arguments.graphql variable.arguments.graphql",
+                        "variable.parameter",
+                        "meta.decorator variable.other.readwrite",
+                        "meta.decorator variable.other.property",
+                        // yaml
+                        "variable.other.alias.yaml",
+                    ],
+                    "settings": {
+                        "fontStyle": "italic"
+                    }
+                }
+            ]
+        }
+    },
+    "editor.suggestSelection": "first",
+    // Jupyter
+    "notebook.output.textLineLimit": 1000,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.lineNumbers": "on",
+    "jupyter.askForKernelRestart": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path.mac": "/Users/afarzane/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+        "vscode-kubernetes.helm-path.mac": "/Users/afarzane/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+        "vs-kubernetes.crd-code-completion": "disabled",
+        "vscode-kubernetes.minikube-path-mac": "/Users/afarzane/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+        "vscode-kubernetes.helm-path-mac": "/Users/afarzane/.vs-kubernetes/tools/helm/darwin-arm64/helm"
+    },
+    "redhat.telemetry.enabled": false,
+    "python.formatting.provider": "black",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "black-formatter.args": [
+        "--line-length=88"
+    ],
+    // Extensions
+    "markdown.extension.toc.updateOnSave": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false,
+        "python": true
+    },
+    "git.ignoreLegacyWarning": true,
+    "dart.flutterSdkPath": "/Applications/dev/flutter",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "workbench.colorCustomizations": {},
+    "Notes.notesLocation": "/Users/ch-afarzaneh_mbp/repos/vscode-notes",
+    "terminal.external.osxExec": "Warp.app",
+    "codestream.serverUrl": "https://api.codestream.com",
+    "vscode-kubernetes.log-viewer.destination": "Terminal",
+    "vscode-kubernetes.log-viewer.follow": true,
+    "vscode-kubernetes.log-viewer.timestamp": true,
+    "settingsSync.ignoredSettings": [
+        "python.analysis.extraPaths",
+        "vscode-kubernetes.log-viewer.destination",
+        "vs-kubernetes",
+    ],
+    "editor.accessibilitySupport": "off",
+    "azure.resourceFilter": [
+        "0c962464-c095-4258-93ea-d81ad4f22f9a/eafcc36e-d9a4-4686-9955-03e43e7ecfdd",
+        "0c962464-c095-4258-93ea-d81ad4f22f9a/eec41164-03dd-493f-8854-301ba8f2dafe"
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    // CCC gitlab token
+    "gitlab-mr.accessTokens": {
+        "https://gitlab.aws.cccis.com": "glpat-zZ3epszWny9QK8GYWDrw"
+    },
+    "window.commandCenter": true,
+    "workbench.layoutControl.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSave": true,
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "update.mode": "none",
+    "terminal.explorerKind": "external",
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "jupyter.logging.level": "verbose"
+}</textarea>
+            <div class="instructions">Click inside the text box and press Ctrl+A (or Command+A) to select all, then
+                Ctrl+C (or Command+C) to copy.</div>
+            <button class="copy-button" id="copyButton">Copy to Clipboard</button>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function () {
+            const jsonContent = document.getElementById('jsonContent');
+            jsonContent.select();
+            document.execCommand('copy');
+
+            // Show feedback
+            const originalText = this.textContent;
+            this.textContent = 'Copied!';
+
+            setTimeout(() => {
+                this.textContent = originalText;
+            }, 2000);
+        });
+    </script>
+</body>
+
+</html>
